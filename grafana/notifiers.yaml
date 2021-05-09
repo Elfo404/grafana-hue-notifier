@@ -1,0 +1,15 @@
+notifiers:
+  - name: hue-webhook
+    type: webhook
+    uid: notifier1
+    org_id: 1
+    is_default: false
+    send_reminder: false
+    frequency: 2s
+    disable_resolve_message: false
+    # See `Supported Settings` section for settings supported for each
+    # alert notification type.
+    settings:
+      url: http://hue-notifier:${NOTIFIER_PORT}/hue
+      httpMethod: POST
+      uploadImage: false

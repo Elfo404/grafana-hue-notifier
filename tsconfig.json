@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "CommonJS",
+    "target": "ES2020",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "./dist",
+    "strict": true,
+    "baseUrl": ".",
+    "preserveWatchOutput": true,
+    "pretty": true
+  },
+  "include": ["./src/**/*.ts", "./*.d.ts"]
+}

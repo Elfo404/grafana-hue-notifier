@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - '3000:3000'
+    volumes:
+      - './grafana/dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml'
+      - './grafana/datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml'
+      - './grafana/notifiers.yaml:/etc/grafana/provisioning/notifiers/notifiers.yaml'
+      - './grafana/dashboards:/usr/share/grafana/dashboards'
+    environment:
+      NOTIFIER_PORT: ${PORT}
+    extra_hosts:
+      - hue-notifier:host-gateway
