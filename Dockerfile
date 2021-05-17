@@ -19,4 +19,4 @@ RUN npm ci --production
 EXPOSE 3100
 
 ENV NODE_ENV=production
-CMD [ "node", "dist/index.js" ]
+CMD [ "npm", "run", "start"]

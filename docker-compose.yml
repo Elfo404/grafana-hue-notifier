@@ -1,9 +1,16 @@
 version: '3.9'
 services:
+  hue-notifier:
+    network_mode: host
+    build: .
+    environment:
+      PORT: ${PORT}
+      HUE_USERNAME: ${HUE_USERNAME}
+      HUE_GROUP_ID: ${HUE_GROUP_ID}
+
   grafana:
     image: grafana/grafana:latest
-    ports:
-      - '3000:3000'
+    network_mode: host
     volumes:
       - './grafana/dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml'
       - './grafana/datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml'
@@ -11,5 +18,3 @@ services:
       - './grafana/dashboards:/usr/share/grafana/dashboards'
     environment:
       NOTIFIER_PORT: ${PORT}
-    extra_hosts:
-      - hue-notifier:host-gateway

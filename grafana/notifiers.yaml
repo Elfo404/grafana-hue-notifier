@@ -10,6 +10,6 @@ notifiers:
     # See `Supported Settings` section for settings supported for each
     # alert notification type.
     settings:
-      url: http://hue-notifier:${NOTIFIER_PORT}/hue
+      url: http://localhost:${NOTIFIER_PORT}/hue
       httpMethod: POST
       uploadImage: false

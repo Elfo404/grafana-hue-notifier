@@ -1,5 +1,5 @@
 {
-  "name": "hue-grafana-hub",
+  "name": "grafana-hue-notifier",
   "license": "MIT",
   "version": "0.1.0",
   "scripts": {
@@ -7,7 +7,8 @@
     "watch:ts": "tsc -w",
     "build": "rimraf ./dist && tsc",
     "start": "NODE_ENV=production node ./dist/index.js | pino-pretty -i hostname,pid -t HH:mm:ss",
-    "start:watch": "wait-on dist && NODE_ENV=development nodemon --watch dist -e js dist/index.js | pino-pretty -i hostname,pid -t HH:mm:ss"
+    "start:watch": "wait-on dist && NODE_ENV=development nodemon --watch dist -e js dist/index.js | pino-pretty -i hostname,pid -t HH:mm:ss",
+    "setup": "node ./dist/setup.js"
   },
   "engines": {
     "node": "16"
@@ -20,7 +21,8 @@
     "fastify-sensible": "^3.1.1",
     "hyperid": "^2.1.0",
     "node-hue-api": "5.0.0-beta.2",
-    "pino": "^6.11.3"
+    "pino": "^6.11.3",
+    "pino-pretty": "^4.8.0"
   },
   "devDependencies": {
     "@elfo404/eslint-config": "^0.0.1-alpha.7",
@@ -30,7 +32,6 @@
     "eslint": "^7.26.0",
     "import-sort-style-module": "^6.0.0",
     "nodemon": "^2.0.7",
-    "pino-pretty": "^4.8.0",
     "prettier": "^2.2.1",
     "prettier-plugin-import-sort": "^0.0.6",
     "rimraf": "^3.0.2",
