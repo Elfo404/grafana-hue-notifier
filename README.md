@@ -24,15 +24,13 @@ In addition you need to create an API user and get a `token` with which this web
 ### Environment variables
 
 ```env
-PORT=3300
+PORT=3001
 HUE_USERNAME=
 HUE_GROUP_ID=
 ```
 
-### Generating an API user
+### Generating an API user and list available light groups
 
-TBD
-
-### Getting the Light Group ID
-
-TBD
+```bash
+docker build -t grafana-hue-notifier . && docker run --net=host grafana-hue-notifier npm run setup
+```
